@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UNO — Live Table</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="noise"></div>
+<header class="topbar">
+  <div class="brand"><span class="brand-dot"></span> UNO <small>LIVE TABLE</small></div>
+  <div class="top-actions">
+    <button id="rulesBtn" class="rules-btn">RULES</button>
+    <div class="status"><span id="turnDot"></span><span id="turnText">Ready</span></div>
+  </div>
+</header>
+
+<main>
+  <section id="menu" class="screen">
+    <div class="hero">
+      <div class="hero-card">
+        <div class="uno-logo">UNO</div>
+        <p class="eyebrow">YOUR RULES. YOUR TABLE.</p>
+        <h1>Play the UNO game<br><em>you actually coded.</em></h1>
+        <p class="sub">Your Python game logic drives the match. The interface adds the table, cards, animations and live game state.</p>
+        <div class="setup">
+          <label>RIVALS</label>
+          <div class="rivals">
+            <button data-rivals="1">1</button>
+            <button data-rivals="2">2</button>
+            <button data-rivals="3">3</button>
+            <button data-rivals="4">4</button>
+          </div>
+          <button id="start" class="primary">START GAME <span>→</span></button>
+        </div>
+      </div>
+      <div class="hero-cards">
+        <div class="float-card red">7</div>
+        <div class="float-card blue">+1</div>
+        <div class="float-card green">↻</div>
+        <div class="float-card yellow">W</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="game" class="game hidden">
+    <aside class="side">
+      <div class="side-title">TABLE</div>
+      <div id="players"></div>
+      <div class="side-stat"><span>PENALTY</span><strong id="penalty">0</strong></div>
+      <button id="newGame" class="ghost">NEW GAME</button>
+    </aside>
+
+    <section class="table">
+      <div class="table-head">
+        <div><span class="eyebrow">CURRENT TURN</span><strong id="currentName">YOU</strong></div>
+        <div class="direction" id="direction">↻ CLOCKWISE</div>
+      </div>
+
+      <div class="arena">
+        <div class="deck-pile" id="deckPile">
+          <div class="back-card">UNO</div>
+          <span>DRAW</span>
+        </div>
+        <div class="last-wrap">
+          <div id="lastCard" class="card large red">7</div>
+          <div id="colorRing" class="ring"></div>
+        </div>
+        <div class="effect" id="effect"></div>
+      </div>
+
+      <div class="hand-panel">
+        <div class="hand-top">
+          <div><span class="eyebrow">YOUR HAND</span><strong id="count">7 CARDS</strong></div>
+          <div id="hint">Select a card to play</div>
+        </div>
+        <div id="hand" class="hand"></div>
+      </div>
+    </section>
+
+    <aside class="log-panel">
+      <div class="side-title">LIVE FEED</div>
+      <div id="log"></div>
+    </aside>
+  </section>
+</main>
+
+
+<div id="rulesModal" class="modal hidden">
+  <div class="modal-box rules-box">
+    <button id="closeRules" class="close-modal">×</button>
+    <span class="eyebrow">HOW TO PLAY</span>
+    <h2>UNO Rules</h2>
+    <div class="rules-list">
+      <div><b>01 — MATCH</b><span>Play a card matching the current card's color or value.</span></div>
+      <div><b>02 — DRAW</b><span>Press DRAW to take one card and end your turn.</span></div>
+      <div><b>03 — WILD</b><span>WILD lets you choose Red, Blue, Green or Yellow.</span></div>
+      <div><b>04 — +1</b><span>+1 adds one card to the penalty. +1 cards can be stacked.</span></div>
+      <div><b>05 — +4</b><span>+4 adds four cards and lets you choose a color. +4 can be stacked.</span></div>
+      <div><b>06 — REVERSE</b><span>Reverses the direction of play.</span></div>
+      <div><b>07 — SKIP</b><span>Skips the next player.</span></div>
+      <div><b>08 — WIN</b><span>Empty your hand first to win.</span></div>
+    </div>
+    <p class="rules-note">House rule: playing an invalid card automatically draws one card and ends your turn.</p>
+  </div>
+</div>
+
+<div id="colorModal" class="modal hidden">
+  <div class="modal-box">
+    <span class="eyebrow">WILD CARD</span>
+    <h2>Choose a color</h2>
+    <div class="color-options">
+      <button data-color="R" class="c-red">RED</button>
+      <button data-color="B" class="c-blue">BLUE</button>
+      <button data-color="G" class="c-green">GREEN</button>
+      <button data-color="Y" class="c-yellow">YELLOW</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

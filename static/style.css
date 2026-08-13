@@ -40,3 +40,547 @@ h1{font-family:"Space Grotesk";font-size:clamp(45px,6vw,76px);line-height:.98;le
 
 .close-modal{position:absolute;right:16px;top:10px;background:transparent;color:#777;font-size:28px}.close-modal:hover{color:#fff}
 .rules-box{position:relative;width:min(620px,92%);max-height:88vh;overflow:auto}.rules-list{display:grid;gap:8px}.rules-list>div{background:#181a20;border:1px solid #272a32;border-radius:9px;padding:12px 14px;display:flex;gap:14px}.rules-list b{font-size:10px;min-width:105px;color:#eee}.rules-list span{font-size:11px;line-height:1.5;color:#9297a1}.rules-note{border-top:1px solid var(--line);padding-top:15px;margin-top:15px;color:#777d87;font-size:10px;line-height:1.6}
+/* =========================================================
+   MOBILE UI OVERRIDE
+   Paste this at the VERY BOTTOM of style.css
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* ---------- TOP BAR ---------- */
+
+  .topbar {
+    height: 60px;
+    padding: 0 15px;
+  }
+
+  .brand {
+    font-size: 17px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .brand-dot {
+    width: 7px;
+    height: 7px;
+    margin-right: 6px;
+  }
+
+  .top-actions {
+    gap: 8px;
+  }
+
+  .rules-btn {
+    padding: 7px 9px;
+    font-size: 9px;
+  }
+
+  .status {
+    font-size: 10px;
+  }
+
+
+  /* =====================================================
+     START SCREEN
+     ===================================================== */
+
+  .screen {
+    min-height: calc(100vh - 60px);
+    padding: 25px 18px;
+  }
+
+  .hero {
+    display: block;
+    width: 100%;
+  }
+
+  .hero-card {
+    padding: 15px 0;
+  }
+
+  .uno-logo {
+    width: 68px;
+    height: 43px;
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: clamp(40px, 12vw, 55px);
+    line-height: .94;
+    margin: 20px 0 17px;
+  }
+
+  .sub {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .setup {
+    margin-top: 28px;
+  }
+
+  .rivals {
+    gap: 7px;
+  }
+
+  .rivals button {
+    width: 46px;
+    height: 42px;
+  }
+
+  .primary {
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+  }
+
+  .hero-cards {
+    display: none;
+  }
+
+
+  /* =====================================================
+     GAME LAYOUT
+     ===================================================== */
+
+  .game {
+    display: block;
+    min-height: calc(100vh - 60px);
+  }
+
+
+  /* ---------- PLAYER BAR ---------- */
+
+  .side {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    width: 100%;
+    padding: 10px 12px;
+
+    overflow-x: auto;
+
+    background: #0b0c0f;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+
+    scrollbar-width: none;
+  }
+
+  .side::-webkit-scrollbar {
+    display: none;
+  }
+
+  .side-title,
+  .side-stat,
+  .side .ghost {
+    display: none;
+  }
+
+  .player-row {
+    flex: 0 0 auto;
+
+    min-width: 105px;
+    height: 42px;
+
+    margin: 0;
+    padding: 9px 11px;
+
+    border: 1px solid #22252c;
+    background: #111318;
+  }
+
+  .player-row.active {
+    border-color: #555b66;
+    background: #191c22;
+  }
+
+  .player-name {
+    font-size: 10px;
+  }
+
+  .player-count {
+    font-size: 10px;
+  }
+
+
+  /* =====================================================
+     MAIN TABLE
+     ===================================================== */
+
+  .table {
+    width: 100%;
+    padding: 17px 14px 25px;
+  }
+
+  .table-head {
+    align-items: center;
+  }
+
+  .table-head strong {
+    font-size: 15px;
+  }
+
+  .eyebrow {
+    font-size: 8px;
+    margin-bottom: 5px;
+  }
+
+  .direction {
+    font-size: 8px;
+  }
+
+
+  /* =====================================================
+     CENTER ARENA
+     ===================================================== */
+
+  .arena {
+    height: 285px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+  }
+
+  /* Hide draw pile from taking layout space */
+
+  .deck-pile {
+    display: block;
+
+    position: absolute;
+    left: 8px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 3;
+  }
+
+  .back-card {
+    width: 67px;
+    height: 95px;
+
+    border-radius: 11px;
+    border-width: 2px;
+
+    font-size: 17px;
+
+    margin-bottom: 6px;
+  }
+
+  .deck-pile span {
+    font-size: 7px;
+  }
+
+
+  /* ---------- CURRENT CARD ---------- */
+
+  .last-wrap {
+    position: relative;
+    z-index: 4;
+  }
+
+  .card.large {
+    width: 115px;
+    height: 165px;
+
+    border-radius: 17px;
+    border-width: 3px;
+
+    font-size: 48px;
+  }
+
+  .card.large:after {
+    inset: 10px;
+  }
+
+  .ring {
+    inset: -14px;
+  }
+
+
+  /* =====================================================
+     HAND
+     ===================================================== */
+
+  .hand-panel {
+    padding-top: 15px;
+  }
+
+  .hand-top {
+    align-items: center;
+  }
+
+  .hand-top strong {
+    font-size: 13px;
+  }
+
+  .hand-top #hint {
+    max-width: 145px;
+    text-align: right;
+    font-size: 9px;
+  }
+
+  .hand {
+    display: flex;
+
+    justify-content: flex-start;
+
+    width: 100%;
+
+    min-height: 130px;
+
+    padding: 22px 8px 15px;
+
+    overflow-x: auto;
+    overflow-y: visible;
+
+    scrollbar-width: none;
+  }
+
+  .hand::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hand .card {
+    flex: 0 0 61px;
+
+    width: 61px;
+    height: 88px;
+
+    margin-left: -10px;
+
+    border-radius: 10px;
+    border-width: 2px;
+
+    font-size: 23px;
+  }
+
+  .hand .card:first-child {
+    margin-left: 0;
+  }
+
+  .hand .card:hover {
+    transform: translateY(-10px);
+  }
+
+  .hand .card:after {
+    inset: 7px;
+  }
+
+
+  /* =====================================================
+     LIVE FEED
+     ===================================================== */
+
+  .log-panel {
+    display: block;
+
+    width: 100%;
+
+    padding: 14px 14px 25px;
+
+    border-left: none;
+    border-top: 1px solid var(--line);
+
+    background: #0b0c0f;
+  }
+
+  .log-panel .side-title {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  #log {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    max-height: 150px;
+
+    overflow-y: auto;
+
+    scrollbar-width: none;
+  }
+
+  #log::-webkit-scrollbar {
+    display: none;
+  }
+
+  .log-item {
+    font-size: 9px;
+    padding-bottom: 7px;
+  }
+
+
+  /* =====================================================
+     RULES MODAL
+     ===================================================== */
+
+  .rules-box {
+    width: calc(100% - 28px);
+
+    max-height: 85vh;
+
+    padding: 23px 17px;
+
+    border-radius: 15px;
+  }
+
+  .rules-box h2 {
+    font-size: 26px;
+    margin-bottom: 17px;
+  }
+
+  .rules-list {
+    gap: 6px;
+  }
+
+  .rules-list > div {
+    display: block;
+
+    padding: 10px 11px;
+
+    border-radius: 8px;
+  }
+
+  .rules-list b {
+    display: block;
+
+    min-width: auto;
+
+    margin-bottom: 4px;
+
+    font-size: 9px;
+  }
+
+  .rules-list span {
+    display: block;
+
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .rules-note {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .close-modal {
+    right: 10px;
+    top: 7px;
+  }
+
+
+  /* =====================================================
+     WILD COLOR MODAL
+     ===================================================== */
+
+  .modal-box {
+    width: calc(100% - 30px);
+
+    padding: 24px 18px;
+
+    border-radius: 15px;
+  }
+
+  .modal-box h2 {
+    font-size: 25px;
+  }
+
+  .color-options {
+    gap: 8px;
+  }
+
+  .color-options button {
+    padding: 14px 8px;
+
+    font-size: 11px;
+  }
+
+
+  /* =====================================================
+     EFFECT / TOAST
+     ===================================================== */
+
+  .effect {
+    font-size: 20px;
+    text-align: center;
+
+    padding: 0 60px;
+  }
+
+  .toast {
+    width: calc(100% - 35px);
+
+    text-align: center;
+
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+  .topbar {
+    padding: 0 11px;
+  }
+
+  .brand {
+    font-size: 15px;
+  }
+
+  .status {
+    display: none;
+  }
+
+  .table {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .arena {
+    height: 265px;
+  }
+
+  .deck-pile {
+    left: 3px;
+  }
+
+  .back-card {
+    width: 59px;
+    height: 84px;
+  }
+
+  .card.large {
+    width: 105px;
+    height: 150px;
+    font-size: 43px;
+  }
+
+  .hand .card {
+    flex-basis: 56px;
+    width: 56px;
+    height: 82px;
+    font-size: 21px;
+  }
+
+  .player-row {
+    min-width: 95px;
+  }
+}

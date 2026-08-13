@@ -138,7 +138,7 @@ async function sendAction(action, color=null){
     $("hint").textContent = "SYSTEM IS PLAYING...";
     await sleep(5000);
   } else if (game.last_event) {
-    await sleep(5000);
+    await sleep(3000);
   }
 
   render();

@@ -136,9 +136,9 @@ async function sendAction(action, color=null){
   // Keep the latest system action visible for 2 seconds.
   if (game.current !== 0 && game.winner === null) {
     $("hint").textContent = "SYSTEM IS PLAYING...";
-    await sleep(5000);
+    await sleep(2000);
   } else if (game.last_event) {
-    await sleep(3000);
+    await sleep(2000);
   }
 
   render();
